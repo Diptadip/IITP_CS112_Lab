@@ -17,3 +17,11 @@ int main(){
     }
     return 0;
 }
+/*
+Enter the terms in first row: 9
+* * * * * * * * * 
+  * * * * * * *
+    * * * * *
+      * * *
+        *
+*/

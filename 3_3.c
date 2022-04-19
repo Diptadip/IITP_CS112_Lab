@@ -28,3 +28,8 @@ int main()
     printf("Value of sin(%.2f) is : %f",x_deg,sum);
     return 0;
 }
+/*
+Enter x in degrees: 30
+Enter threshold value: 0.01
+Value of sin(30.00) is : 0.499445
+*/

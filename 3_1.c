@@ -13,3 +13,7 @@ int main(){
     printf("The reverse of %d is %d.\n",n,rev);
     return 0;
 }
+/*
+Enter an integer: 3045
+The reverse of 3045 is 5403.
+*/
