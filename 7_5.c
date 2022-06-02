@@ -7,7 +7,7 @@ int main(){
     int r1,c1,r2,c2;
     printf("Enter rows and columns of 1st matrix: ");
     scanf("%d %d",&r1,&c1);
-    printf("Enter rows and columns of 1st matrix: ");
+    printf("Enter rows and columns of 2nd matrix: ");
     scanf("%d %d",&r2,&c2);
 
     int A[r1][c1],B[r2][c2];
