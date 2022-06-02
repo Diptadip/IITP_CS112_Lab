@@ -1,62 +1,63 @@
-// A Dynamic Programming solution
-// for subset sum problem
+/* An efficient program to print
+subset with sum as given k */
 #include <stdio.h>
- 
-// Returns true if there is a subset of set[]
-// with sum equal to given sum
-int isSubsetSum(int set[], int n, int sum)
+
+/* Returns true if the there is a
+subarray of arr[] with a sum
+equal to 'k' otherwise returns
+false. Also, prints the result */
+int subset(int arr[], int n, int k)
 {
-    // The value of subset[i][j] will be true if
-    // there is a subset of set[0..j-1] with sum
-    // equal to i
-   int subset[n + 1][sum + 1];
- 
-    // If sum is 0, then answer is true
-    for (int i = 0; i <= n; i++)
-        subset[i][0] = 1;
- 
-    // If sum is not 0 and set is empty,
-    // then answer is false
-    for (int i = 1; i <= sum; i++)
-        subset[0][i] = 0;
- 
-    // Fill the subset table in bottom up manner
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= sum; j++) {
-            if (j < set[i - 1])
-                subset[i][j] = subset[i - 1][j];
-            if (j >= set[i - 1])
-                subset[i][j] = subset[i - 1][j]
-                               || subset[i - 1][j - set[i - 1]];
-        }
-    }
- 
-    /*   // uncomment this code to print table
-     for (int i = 0; i <= n; i++)
-     {
-       for (int j = 0; j <= sum; j++)
-          printf ("%4d", subset[i][j]);
-       printf("\n");
-     }*/
-    for(int i=0;i<n;i++){
-        for(int j=0;j<sum;j++){
-            printf("%3d",subset[i][j]);
-        }
-        printf("\n");
-    }
-    return subset[n][sum];
+	/* Initialize curr_sum as
+	value of first element and
+starting point as 0 */
+	int curr_sum = arr[0], start = 0, i;
+
+	/* Add elements one by one to
+curr_sum and if the curr_sum
+	exceeds the sum, then remove
+starting element */
+	for (i = 1; i <= n; i++) {
+		// If curr_sum exceeds the sum,
+		// then remove the starting elements
+		while (curr_sum > k && start < i - 1) {
+			curr_sum = curr_sum - arr[start];
+			start++;
+		}
+
+		// If curr_sum becomes equal to sum,
+		// then return true
+		if (curr_sum == k) {
+           int x=i-1;
+             int y=start;
+                for(int i=y;i<=x;i++){
+                    printf("%d\n",  arr[i]);
+                }
+
+			return 1;
+		}
+
+		// Add this element to curr_sum
+		if (i < n)
+			curr_sum = curr_sum + arr[i];
+	}
+
+	// If we reach here, then no subarray
+	printf("Error");
+	return 0;
 }
- 
-// Driver code
+
+// Driver program to test above function
 int main()
-{
-    int set[] = { 3, 34, 4, 12, 5, 2 };
-    int sum = 9;
-    int n = sizeof(set) / sizeof(set[0]);
-    if (isSubsetSum(set, n, sum))
-        printf("Found a subset with given sum");
-    else
-        printf("No subset with given sum");
-    return 0;
+{  
+    int n,k;
+    printf("Enter value of n and sum: ");
+    scanf("%d%d",&n , &k);
+	int arr[n];
+    printf("Enter %d integers: ",n);
+    for(int i=0;i<n;i++){
+        scanf("%d", &arr[i]);
+    }
+	subset(arr, n, k);
+	return 0;
 }
-// This code is contributed by Arjun Tyagi.
