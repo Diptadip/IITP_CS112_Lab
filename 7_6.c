@@ -23,8 +23,7 @@ int main()
   else
    cofactor(a, k);
 }
- 
-/*For calculating Determinant of the Matrix */
+
 float determinant(float a[25][25], float k)
 {
   float s = 1, det = 0, b[25][25];
@@ -98,7 +97,7 @@ void cofactor(float num[25][25], float f)
   }
   transpose(num, fac, f);
 }
-/*Finding transpose of matrix*/ 
+
 void transpose(float num[25][25], float fac[25][25], float r)
 {
   int i, j;

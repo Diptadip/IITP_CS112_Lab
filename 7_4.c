@@ -3,21 +3,22 @@
 int removeDuplicates(int arr[], int n)
 {
 
-	if (n == 0 || n == 1)
-		return n;
-
-	int temp[n];
-	int j = 0;
-	for (int i = 0; i < n - 1; i++)
-		if (arr[i] != arr[i + 1])
-			temp[j++] = arr[i];
-
-	temp[j++] = arr[n - 1];
-
-	for (int i = 0; i < j; i++)
-		arr[i] = temp[i];
-
-	return j;
+    for ( int i = 0; i < n; i ++)  
+    {  
+        for ( int j = i + 1; j < n; j++)  
+        {  
+            if ( arr[i] == arr[j])  
+            {  
+                for ( int k = j; k < n - 1; k++)  
+                {  
+                    arr[k] = arr [k + 1];  
+                }  
+                n--;  
+                j--;      
+            }  
+        }  
+    }  
+    return n;
 }
 
 
