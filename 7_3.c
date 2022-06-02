@@ -2,7 +2,7 @@
  
 int main() {
    int size = 3;
-   int matrix[3][3]; // = {{4,9,2},{3,5,7},{8,1,6}};
+   int matrix[3][3]; 
    int row, column = 0;
    int sum, sum1, sum2;
    int flag = 0;
@@ -21,7 +21,6 @@ int main() {
       }
    }
  
-   //For diagonal elements
    sum = 0;
    for (row = 0; row < size; row++) {
       for (column = 0; column < size; column++) {
@@ -30,7 +29,6 @@ int main() {
       }
    }
  
-   //For Rows
    for (row = 0; row < size; row++) {
       sum1 = 0;
       for (column = 0; column < size; column++) {
@@ -44,7 +42,6 @@ int main() {
       }
    }
  
-   //For Columns
    for (row = 0; row < size; row++) {
       sum2 = 0;
       for (column = 0; column < size; column++) {
