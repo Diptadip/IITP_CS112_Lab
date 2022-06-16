@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int length(const char*arr){
     int len=0;
@@ -57,7 +58,7 @@ int isSubstring(const char* X, const char* Y)
 }
 
 int main(){
-    char *P,*Q,*R;
+    char *P,*Q,*R,*str;
     fflush(stdin);
     GetStr("P = ",&P);
     GetStr("Q = ",&Q);
@@ -66,11 +67,28 @@ int main(){
 
     int idx_Q=isSubstring(P, Q);
     int idx_R=isSubstring(P, R);
-    if(idx_Q>=0 && idx_R >=0 && idx_Q<idx_R){
+    if(!strlen(Q) && idx_R>=0){
+        printf("The pattern Q*R is found in P at idx %d\n",idx_R);
+    }
+    else if(!strlen(R) && idx_Q>=0){//R null
         printf("The pattern Q*R is found in P at idx %d\n",idx_Q);
     }
     else{
-        printf("The pattern Q*R is not found in P\n");
+        if(idx_Q>=0){
+            int k=0;
+            char*ptr=P+idx_Q;
+            char*ptr1=str;
+            while(*ptr){
+                *ptr1++=*ptr++;
+            }
+        }
+        idx_R=isSubstring(str, R);
+        if(idx_R>=0){
+            printf("The pattern Q*R is found in P at idx %d\n",idx_Q);
+        }
+        else{
+            printf("The pattern Q*R is not found in P\n");
+        }
     }
 
 }

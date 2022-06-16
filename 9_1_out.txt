@@ -11,12 +11,12 @@ The pattern Q*R is found in P at idx 9
 P = What fun it is to ride and sing a sleighing song tonight
 Q = night
 R = 
-The pattern Q*R is not found in P
+The pattern Q*R is found in P at idx 51
 
 P = What fun it is to ride and sing a sleighing song tonight
 Q = 
 R = tonight
-The pattern Q*R is not found in P
+The pattern Q*R is found in P at idx 49
 
 P = What fun it is to ride and sing a sleighing song tonight
 Q = to ride and sing
@@ -31,4 +31,4 @@ The pattern Q*R is found in P at idx 34
 P = What fun it is to ride and sing a sleighing song tonight
 Q = g
 R = g
-The pattern Q*R is not found in P
+The pattern Q*R is found in P at idx 30

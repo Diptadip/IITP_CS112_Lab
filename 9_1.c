@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<string.h>
 
 int match(char src[100], char str[100], int i, int j)
 {
@@ -42,7 +43,7 @@ int substring(char src[100], char str[100], int i)
 
 
 int main(){
-    char P[100],Q[100],R[100];
+    char P[100],Q[100],R[100],str[100];
     printf("P = ");
     gets(P);
     printf("Q = ");
@@ -52,11 +53,28 @@ int main(){
 
     int idx_Q=substring(P, Q, 0);
     int idx_R=substring(P, R, 0);
-    if(idx_Q>=0 && idx_R >=0 && idx_Q<idx_R){
+    //Q null
+    if(!strlen(Q) && idx_R>=0){
+        printf("The pattern Q*R is found in P at idx %d\n",idx_R);
+    }
+    else if(!strlen(R) && idx_Q>=0){//R null
         printf("The pattern Q*R is found in P at idx %d\n",idx_Q);
     }
     else{
-        printf("The pattern Q*R is not found in P\n");
+        if(idx_Q>=0){
+            int i=idx_Q,k=0;
+            while(P[i]){
+                str[k++]=P[i++];
+            }
+        }
+        idx_R=substring(str, R, 0);
+        if(idx_R>=0){
+            printf("The pattern Q*R is found in P at idx %d\n",idx_Q);
+        }
+        else{
+            printf("The pattern Q*R is not found in P\n");
+        }
     }
+    
 
 }
