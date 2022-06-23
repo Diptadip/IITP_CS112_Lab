@@ -27,7 +27,7 @@ typedef struct{
 float Sum(Student s[5],int n){
     float sum=0;
     for(int i=0;i<n;i++){
-        sum+=s->marks;
+        sum+=s[i].marks;
     }
     return sum;
 }
